@@ -1,2 +1,31 @@
-<link rel="stylesheet" href="style.css">
-<button id="everybodydance"><span>PARTY!</span></button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Trigger Button</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="triggerButton">Trigger API</button>
+
+    <script>
+        const button = document.getElementById('triggerButton');
+
+        button.addEventListener('click', () => {
+            fetch('http://208.126.17.44:8000/trigger?key=Kg142791!')
+                .then(response => {
+                    if (response.ok) {
+                        alert('API triggered successfully!');
+                    } else {
+                        alert('Error triggering API.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to reach API.');
+                });
+        });
+    </script>
+</body>
+</html>
